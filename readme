@@ -1,1 +1,5 @@
 Code Released for Fourier Bessel Domain Adaptive Wavelet Transform
+If you use this code for your applications, You need to cite the following papers
+[1] RK Tripathy, DK Dash, SK Ghosh, RB Pachori, "Detection of Different Stages of Anxiety from Single channel Wearable 
+ECG Senor Signal using Fourier-Bessel Domain Adaptive Wavelet Transform", IEEE Sensors Letters, 2023.
+[2] Gilles, Jerome. "Empirical wavelet transform." IEEE transactions on signal processing 61.16 (2013): 3999-4010.
