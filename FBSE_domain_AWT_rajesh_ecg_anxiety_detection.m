@@ -13,6 +13,7 @@ N=length(f);
 nb=(1:N);
 f=f';
 MM=N;
+%%%%%FBSE coefficents evaluation in an iterative way%%%%%%
 if exist('alfa') == 0
     x=2;
     alfa=zeros(1,MM);
@@ -28,12 +29,15 @@ if exist('alfa') == 0
     end
 end
 a=N;
+%%%%FBSE Coefficents%%%%%%%%
 for m1=1:MM
     a3(m1)=(2/(a^2*(besselj(1,alfa(m1))).^2))*sum(nb.*f.*besselj(0,alfa(m1)/a*nb));
 end
+%%%%root to frequency conversion%%%%%%%%
 freq1=(alfa*Fs)/(2*pi*length(f));
 order=2;
 framelen=(N/(0.1*Fs))+1;
+%%%%Instantaneous energy in FBSE domain%%%%%
 eng=((besselj(1,alfa(m1)).^2).*(length(f)^2).*(a3.^2))/2;
 a3new=sgolayfilt(eng,order,framelen);
 % plot(freq1, a3new)
@@ -51,7 +55,9 @@ for k=1:Npic-1
     end
 end
 mfb=cell(Npic+1,1);
+%%%%FBSE domain scaling function (No concept of FFT here like EWT)%%%
 mfb{1}=FBSE_domain_scaling_function(freq1, boundaries, gamma, N);
+%%%%FBSE domain wavelet function (No concept of FFT here like EWT)%%%
 for k=1:Npic-1
    mfb{k+1}=FBSE_domain_wavelet_function(freq1,boundaries(k),boundaries(k+1),gamma,N); 
 end
@@ -70,6 +76,7 @@ end
 xlim([0 45])
 ylim([0 2])
 title('FB domain-adaptive wavelet filter bank')
+%%%%FBSE domain mode reconstruction (No concept of IFFT here as in EWT)%%%
 for m1=1:MM
 D(:,m1)=besselj(0,alfa(m1)/a*nb);
 end
@@ -95,7 +102,3 @@ subplot(817)
 plot(modes{7});
 subplot(818)
 plot(modes{8});
-
-
-
-
