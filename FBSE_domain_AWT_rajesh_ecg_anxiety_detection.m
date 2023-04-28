@@ -4,7 +4,7 @@ close all;
 load ecg_signal.mat;  
 Fs=500;
 zf=ecg_signal;
-zf=ecgfiltering(zf,Fs);
+zf=rajeshecgfiltering(zf,Fs);
 f=zf;
 figure,
 plot(zf)
