@@ -1,7 +1,7 @@
 function yms=FBSE_domain_scaling_function(freq1, boundaries, gamma, N)
 w=freq1';
 w1=w(boundaries(1));
-aw=abs(w);
+aw=w;
 yms=zeros(N,1);
 
 an=1/(2*gamma*w1);
