@@ -15,10 +15,8 @@ for k=1:N
    if ((aw(k)>=pbn) && (aw(k)<=mbm))
        ymw(k)=1;
    elseif ((aw(k)>=mbm) && (aw(k)<=pbm))
-       %ymw(k)=complex(cos(w(k)/2),-sin(w(k)/2))*cos(pi*EWT_beta(am*(aw(k)-mbm))/2);   
        ymw(k)=cos(pi*EWT_beta(am*(aw(k)-mbm))/2);   
    elseif ((aw(k)>=mbn) && (aw(k)<=pbn))
-       %ymw(k)=complex(cos(w(k)/2),-sin(w(k)/2))*sin(pi*EWT_beta(an*(aw(k)-mbn))/2);
        ymw(k)=sin(pi*EWT_beta(an*(aw(k)-mbn))/2);
    end
 end
