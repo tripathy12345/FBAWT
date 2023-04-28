@@ -1,6 +1,6 @@
 function ymw=FBSE_domain_wavelet_function(freq1, mb, ma, gamma, N)
 w=freq1';
-aw=abs(w);
+aw=w;
 ymw=zeros(N,1);
 wn=w(mb);
 wm=w(ma);
